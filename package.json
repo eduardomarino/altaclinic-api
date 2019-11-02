@@ -1,0 +1,20 @@
+{
+  "name": "altaclinic",
+  "version": "1.0.0",
+  "description": "Medical Clinic Management System",
+  "homepage": "",
+  "main": "src/server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eduardomarino/altaclinic.git"
+  },
+  "author": "Eduardo Marino Riscado (eduardomarino@gmail.com)",
+  "license": "MIT"
+}
