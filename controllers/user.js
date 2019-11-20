@@ -1,13 +1,16 @@
 // @desc      Get all users
 // @route     GET /api/v1/user
-exports.getUsers = (req, res, next) => {
+exports.getAllUsers = (req, res, next) => {
   res.status(200).json({ success: true, msg: 'Show all users' });
 }
 
 // @desc      Get single user
-// @route     GET /api/v1/user/:id
+// @route     GET /api/v1/user/:userId
 exports.getUser = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Get user ${req.params.id}` });
+  res.status(200).json({
+    success: true,
+    msg: `Get user ${req.params.userId}`
+  });
 }
 
 // @desc      Create new user
@@ -17,13 +20,19 @@ exports.createUser = (req, res, next) => {
 }
 
 // @desc      Update user
-// @route     PUT /api/v1/user/:id
+// @route     PUT /api/v1/user/:userId
 exports.updateUser = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Update user ${req.params.id}` });
+  res.status(200).json({
+    success: true,
+    msg: `Update user ${req.params.userId}`
+  });
 }
 
 // @desc      Delete user
-// @route     DELETE /api/v1/user/:id
+// @route     DELETE /api/v1/user/:userId
 exports.deleteUser = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Delete user ${req.params.id}` });
+  res.status(200).json({
+    success: true,
+    msg: `Delete user ${req.params.userId}`
+  });
 }

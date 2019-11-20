@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getAppointments,
+  getAllAppointments,
   getAppointment,
   createAppointment,
   updateAppointment,
@@ -10,12 +10,12 @@ const {
 
 router
   .route('/')
-  .get(getAppointments)
+  .get(getAllAppointments)
   .post(createAppointment)
 ;
 
 router
-  .route('/:id')
+  .route('/:appointmentId')
   .get(getAppointment)
   .put(updateAppointment)
   .delete(deleteAppointment)
