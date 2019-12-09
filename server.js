@@ -15,6 +15,8 @@ const patient = require('./routes/patient');
 const appointment = require('./routes/appointment');
 
 const app = express();
+app.use(express.json());
+
 const PORT = process.env.PORT || 5000;
 
 // Dev logging middleware
