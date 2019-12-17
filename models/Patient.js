@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const PatientSchema = new mongoose.Schema({
   name: {
@@ -84,6 +85,12 @@ const PatientSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
+});
+
+// Create slug
+PatientSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 module.exports = mongoose.model('Patient', PatientSchema);
