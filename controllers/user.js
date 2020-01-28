@@ -5,7 +5,11 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/user
 exports.getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find();
+    let queryStr = JSON.stringify(req.query);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+    const query = User.find(JSON.parse(queryStr));
+    const users = await query;
+
     return res.status(200).json({
       success: true,
       total: users.length,
