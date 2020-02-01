@@ -5,9 +5,32 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/user
 exports.getAllUsers = async (req, res, next) => {
   try {
-    let queryStr = JSON.stringify(req.query);
+    const reqQuery = { ...req.query };
+
+    const removeFields = ['select', 'sort'];
+
+    // Delete fields from reqQuery
+    removeFields.forEach(param => delete reqQuery[param]);
+
+    let queryStr = JSON.stringify(reqQuery);
+
+    // Create operators ($gt, $gte, $lt, $lte and $in)
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
-    const query = User.find(JSON.parse(queryStr));
+
+    let query = User.find(JSON.parse(queryStr));
+
+    if (req.query.select) {
+      const fields = req.query.select.split(',').join(' ');
+      query.select(fields);
+    }
+
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      query.sort(sortBy);
+    } else {
+      query = query.sort('-createdAt'); // Default sort
+    }
+
     const users = await query;
 
     return res.status(200).json({
