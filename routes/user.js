@@ -8,9 +8,12 @@ const {
   deleteUser
 } = require('../controllers/user');
 
+const User = require('../models/User');
+const resultsHandler = require('../middleware/results');
+
 router
   .route('/')
-  .get(getAllUsers)
+  .get(resultsHandler(User), getAllUsers)
   .post(createUser)
 ;
 

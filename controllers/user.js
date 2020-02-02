@@ -5,64 +5,7 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/user
 exports.getAllUsers = async (req, res, next) => {
   try {
-    const reqQuery = { ...req.query };
-
-    const removeFields = ['select', 'sort', 'page', 'limit'];
-
-    // Delete fields from reqQuery
-    removeFields.forEach(param => delete reqQuery[param]);
-
-    let queryStr = JSON.stringify(reqQuery);
-
-    // Create operators ($gt, $gte, $lt, $lte and $in)
-    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
-
-    let query = User.find(JSON.parse(queryStr));
-
-    // Select
-    if (req.query.select) {
-      const fields = req.query.select.split(',').join(' ');
-      query.select(fields);
-    }
-
-    // Sort
-    if (req.query.sort) {
-      const sortBy = req.query.sort.split(',').join(' ');
-      query.sort(sortBy);
-    } else {
-      query = query.sort('-createdAt'); // Default sort
-    }
-
-    // Pagination
-    const page = parseInt(req.query.page, 10) || 1;
-    const limit = parseInt(req.query.limit, 10) || 10;
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const total = await User.countDocuments();
-
-    query = query.skip(startIndex).limit(limit);
-
-    const users = await query;
-
-    // Pagination data
-    const pagination = {
-      limit
-    };
-
-    if (endIndex < total) {
-      pagination.nextPage = page + 1;
-    }
-
-    if (startIndex > 0) {
-      pagination.prevPage = page - 1;
-    }
-
-    return res.status(200).json({
-      success: true,
-      total: users.length,
-      pagination,
-      data: users
-    });
+    return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
     return next(err);
