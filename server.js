@@ -11,6 +11,7 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 // Route files
+const auth = require('./routes/auth');
 const user = require('./routes/user');
 const patient = require('./routes/patient');
 const appointment = require('./routes/appointment');
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Mount routers
+app.use('/api/v1/auth', auth);
 app.use('/api/v1/user', user);
 app.use('/api/v1/patient', patient);
 app.use('/api/v1/appointment', appointment);
