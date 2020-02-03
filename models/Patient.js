@@ -8,6 +8,7 @@ const PatientSchema = new mongoose.Schema({
     trim: true,
     maxlength: [50, 'Name can not be more than 50 characters.']
   },
+  slug: String,
   birthdate: {
     type: Date,
     required: [true, 'Birthdate is required.'],
@@ -37,7 +38,6 @@ const PatientSchema = new mongoose.Schema({
       'Plan 3'
     ]
   },
-  slug: String,
   email: {
     type: String,
     required: [true, 'A e-mail is required.'],
@@ -61,25 +61,6 @@ const PatientSchema = new mongoose.Schema({
   address: {
     type: String,
     required: [true, 'A address is required.']
-  },
-  location: {
-    // GeoJSON
-    type: {
-      type: String,
-      enum: ['Point'],
-      required: true
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-      index: '2dsphere'
-    },
-    formattedAddress: String,
-    street: String,
-    city: String,
-    state: String,
-    zipcode: String,
-    country: String
   },
   createdAt: {
     type: Date,

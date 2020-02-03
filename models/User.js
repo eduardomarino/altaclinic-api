@@ -22,13 +22,21 @@ const UserSchema = new mongoose.Schema({
   },
   profile: {
     type: [String],
-    required: true,
     enum: [
-      'Admin',
-      'Physician',
-      'Receptionist'
-    ]
+      'admin',
+      'physician',
+      'user'
+    ],
+    default: 'user'
   },
+  password: {
+    type: String,
+    required: [true, 'A password is required.'],
+    minlength: 6,
+    select: false
+  },
+  resetPasswordToken: String,
+  resetPasswordExpire: Date,
   createdAt: {
     type: Date,
     default: Date.now
