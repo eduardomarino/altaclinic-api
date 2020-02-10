@@ -14,7 +14,10 @@ exports.register = async (req, res, next) => {
       password
     });
 
-    return res.status(200).json({ success: true });
+    // Create token
+    const token = user.getSignedToken();
+
+    return res.status(200).json({ success: true, token });
 
   } catch(err) {
     return next(err);
