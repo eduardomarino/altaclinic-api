@@ -14,10 +14,7 @@ exports.register = async (req, res, next) => {
       password
     });
 
-    // Create token
-    const token = user.getSignedToken();
-
-    return res.status(200).json({ success: true, token });
+    return sendTokenResponse(user, 200, res);
 
   } catch(err) {
     return next(err);
@@ -49,12 +46,30 @@ exports.login = async (req, res, next) => {
       return next(new ErrorResponse('Invalid credentials', 401));
     }
 
-    // Create token
-    const token = user.getSignedToken();
-
-    return res.status(200).json({ success: true, token });
+    return sendTokenResponse(user, 200, res);
 
   } catch(err) {
     return next(err);
   }
+}
+
+// Get token, create cookie and send response
+const sendTokenResponse = (user, statusCode, res) => {
+  const token = user.getSignedToken();
+  const options = {
+    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+    httpOnly: true // access only client side
+  };
+
+  if (process.env.NODE_ENV === 'production') {
+    options.secure = true;
+  }
+
+  return res
+    .status(statusCode)
+    .cookie('token', token, options)
+    .json({
+      success: true,
+      token
+    });
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const logger = require('./middleware/logger');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -17,7 +18,12 @@ const patient = require('./routes/patient');
 const appointment = require('./routes/appointment');
 
 const app = express();
+
+// Body parser
 app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
 
 const PORT = process.env.PORT || 5000;
 
