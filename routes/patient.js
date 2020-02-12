@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { protect } = require('../middleware/auth');
 const {
   getAllPatients,
   getPatient,
@@ -36,14 +37,14 @@ const {
 router
   .route('/')
   .get(getAllPatients)
-  .post(createPatient)
+  .post(protect, createPatient)
 ;
 
 router
   .route('/:patientId')
   .get(getPatient)
-  .put(updatePatient)
-  .delete(deletePatient)
+  .put(protect, updatePatient)
+  .delete(protect, deletePatient)
 ;
 
 router
