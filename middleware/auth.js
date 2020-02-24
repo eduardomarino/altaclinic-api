@@ -32,3 +32,13 @@ exports.protect = async (req, res, next) => {
     return next(new ErrorResponse('Not authorized', 401));
   }
 }
+
+// Roles control
+exports.authorize = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.profile)) {
+      return next(new ErrorResponse('Not authorized to access this resource', 403));
+    }
+    next();
+  };
+}

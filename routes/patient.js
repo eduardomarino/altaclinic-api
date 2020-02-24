@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { protect } = require('../middleware/auth');
+const { protect, authorize } = require('../middleware/auth');
 const {
   getAllPatients,
   getPatient,
@@ -37,7 +37,7 @@ const {
 router
   .route('/')
   .get(getAllPatients)
-  .post(protect, createPatient)
+  .post(protect, authorize('admin', 'physician', 'user'), createPatient)
 ;
 
 router

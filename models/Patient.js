@@ -29,7 +29,7 @@ const PatientSchema = new mongoose.Schema({
     ]
   },
   healthPlan: {
-    type: [String],
+    type: String,
     required: true,
     enum: [
       'None',

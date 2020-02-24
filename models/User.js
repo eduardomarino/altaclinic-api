@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
     ]
   },
   profile: {
-    type: [String],
+    type: String,
     enum: [
       'admin',
       'physician',
