@@ -154,6 +154,53 @@ exports.resetPassword = async (req, res, next) => {
   }
 }
 
+// @desc      Update user data
+// @route     PUT /api/v1/auth/updateuser
+// @access    Private
+exports.updateUser = async (req, res, next) => {
+  try {
+    const fieldsToUpdate = {
+      name: req.body.name,
+      email: req.body.email
+    };
+
+    const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+      new: true,
+      runValidators: true,
+    });
+
+    return res.status(200).json({
+      success: true,
+      data: user
+    });
+
+  } catch(err) {
+    return next(err);
+  }
+}
+
+// @desc      Update password
+// @route     PUT /api/v1/auth/updatepassword
+// @access    Private
+exports.updatePassword = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id).select('+password');
+
+    // Check current password
+    if (!(await user.comparePassword(req.body.currentPassword))) {
+      return next(new ErrorResponse('Invalid password', 401));
+    }
+
+    user.password = req.body.newPassword;
+    await user.save();
+
+    return sendTokenResponse(user, 200, res);
+
+  } catch(err) {
+    return next(err);
+  }
+}
+
 // Get token, create cookie and send response
 const sendTokenResponse = (user, statusCode, res) => {
   const token = user.getSignedToken();
