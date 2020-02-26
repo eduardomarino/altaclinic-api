@@ -13,9 +13,9 @@ connectDB();
 
 // Route files
 const auth = require('./routes/auth');
-const user = require('./routes/user');
-const patient = require('./routes/patient');
-const appointment = require('./routes/appointment');
+const users = require('./routes/users');
+const patients = require('./routes/patients');
+const appointments = require('./routes/appointments');
 
 const app = express();
 
@@ -34,9 +34,9 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use('/api/v1/auth', auth);
-app.use('/api/v1/user', user);
-app.use('/api/v1/patient', patient);
-app.use('/api/v1/appointment', appointment);
+app.use('/api/v1/users', users);
+app.use('/api/v1/patients', patients);
+app.use('/api/v1/appointments', appointments);
 
 app.use(errorHandler);
 

@@ -32,7 +32,7 @@ const {
   createAppointmentHistory,
   updateAppointmentHistory,
   deleteAppointmentHistory
-} = require('../controllers/patient');
+} = require('../controllers/patients');
 
 router
   .route('/')

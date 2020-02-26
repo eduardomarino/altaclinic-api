@@ -1,11 +1,11 @@
 // @desc      Get all appointments
-// @route     GET /api/v1/appointment
+// @route     GET /api/v1/appointments
 exports.getAllAppointments = (req, res, next) => {
   res.status(200).json({ success: true, msg: 'Show all appointments' });
 }
 
 // @desc      Get single appointment
-// @route     GET /api/v1/appointment/:appointmentId
+// @route     GET /api/v1/appointments/:appointmentId
 exports.getAppointment = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -14,13 +14,13 @@ exports.getAppointment = (req, res, next) => {
 }
 
 // @desc      Create new appointment
-// @route     POST /api/v1/appointment
+// @route     POST /api/v1/appointments
 exports.createAppointment = (req, res, next) => {
   res.status(200).json({ success: true, msg: 'Create new appointment' });
 }
 
 // @desc      Update appointment
-// @route     PUT /api/v1/appointment/:appointmentId
+// @route     PUT /api/v1/appointments/:appointmentId
 exports.updateAppointment = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -29,7 +29,7 @@ exports.updateAppointment = (req, res, next) => {
 }
 
 // @desc      Delete appointment
-// @route     DELETE /api/v1/appointment/:appointmentId
+// @route     DELETE /api/v1/appointments/:appointmentId
 exports.deleteAppointment = (req, res, next) => {
   res.status(200).json({
     success: true,

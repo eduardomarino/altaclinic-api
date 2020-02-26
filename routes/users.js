@@ -6,7 +6,7 @@ const {
   createUser,
   updateUser,
   deleteUser
-} = require('../controllers/user');
+} = require('../controllers/users');
 
 const User = require('../models/User');
 const resultsHandler = require('../middleware/results');

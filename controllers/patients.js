@@ -1,35 +1,35 @@
 // @desc      Get all patients
-// @route     GET /api/v1/patient
+// @route     GET /api/v1/patients
 exports.getAllPatients = (req, res, next) => {
   res.status(200).json({ success: true, msg: 'Show all patients' });
 }
 
 // @desc      Get single patient
-// @route     GET /api/v1/patient/:patientId
+// @route     GET /api/v1/patients/:patientId
 exports.getPatient = (req, res, next) => {
   res.status(200).json({ success: true, msg: `Get patient ${req.params.patientId}` });
 }
 
 // @desc      Create new patient
-// @route     POST /api/v1/patient
+// @route     POST /api/v1/patients
 exports.createPatient = (req, res, next) => {
   res.status(200).json({ success: true, msg: 'Create new patient' });
 }
 
 // @desc      Update patient
-// @route     PUT /api/v1/patient/:patientId
+// @route     PUT /api/v1/patients/:patientId
 exports.updatePatient = (req, res, next) => {
   res.status(200).json({ success: true, msg: `Update patient ${req.params.patientId}` });
 }
 
 // @desc      Delete patient
-// @route     DELETE /api/v1/patient/:patientId
+// @route     DELETE /api/v1/patients/:patientId
 exports.deletePatient = (req, res, next) => {
   res.status(200).json({ success: true, msg: `Delete patient ${req.params.patientId}` });
 }
 
 // @desc      Get all prescriptions of a specific patient
-// @route     GET /api/v1/patient/:patientId/prescription
+// @route     GET /api/v1/patients/:patientId/prescription
 exports.getAllPrescriptions = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -38,7 +38,7 @@ exports.getAllPrescriptions = (req, res, next) => {
 }
 
 // @desc      Get single prescription of a specific patient
-// @route     GET /api/v1/patient/:patientId/prescription/:prescriptionId
+// @route     GET /api/v1/patients/:patientId/prescription/:prescriptionId
 exports.getPrescription = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -47,7 +47,7 @@ exports.getPrescription = (req, res, next) => {
 }
 
 // @desc      Create new prescription for a specific patient
-// @route     POST /api/v1/patient/:patientId/prescription
+// @route     POST /api/v1/patients/:patientId/prescription
 exports.createPrescription = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -56,7 +56,7 @@ exports.createPrescription = (req, res, next) => {
 }
 
 // @desc      Update prescription of a specific patient
-// @route     PUT /api/v1/patient/:patientId/prescription/:prescriptionId
+// @route     PUT /api/v1/patients/:patientId/prescription/:prescriptionId
 exports.updatePrescription = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -65,7 +65,7 @@ exports.updatePrescription = (req, res, next) => {
 }
 
 // @desc      Delete prescription of a specific patient
-// @route     DELETE /api/v1/patient/:patientId/prescription/:prescriptionId
+// @route     DELETE /api/v1/patients/:patientId/prescription/:prescriptionId
 exports.deletePrescription = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -74,7 +74,7 @@ exports.deletePrescription = (req, res, next) => {
 }
 
 // @desc      Get all evaluations of a specific patient
-// @route     GET /api/v1/patient/:patientId/evaluation
+// @route     GET /api/v1/patients/:patientId/evaluation
 exports.getAllEvaluations = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -83,7 +83,7 @@ exports.getAllEvaluations = (req, res, next) => {
 }
 
 // @desc      Get single evaluation of a specific patient
-// @route     GET /api/v1/patient/:patientId/evaluation/:evaluationId
+// @route     GET /api/v1/patients/:patientId/evaluation/:evaluationId
 exports.getEvaluation = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -92,7 +92,7 @@ exports.getEvaluation = (req, res, next) => {
 }
 
 // @desc      Create new evaluation for a specific patient
-// @route     POST /api/v1/patient/:patientId/evaluation
+// @route     POST /api/v1/patients/:patientId/evaluation
 exports.createEvaluation = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -101,7 +101,7 @@ exports.createEvaluation = (req, res, next) => {
 }
 
 // @desc      Update evaluation of a specific patient
-// @route     PUT /api/v1/patient/:patientId/evaluation/:evaluationId
+// @route     PUT /api/v1/patients/:patientId/evaluation/:evaluationId
 exports.updateEvaluation = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -110,7 +110,7 @@ exports.updateEvaluation = (req, res, next) => {
 }
 
 // @desc      Delete evaluation of a specific patient
-// @route     DELETE /api/v1/patient/:patientId/evaluation/:evaluationId
+// @route     DELETE /api/v1/patients/:patientId/evaluation/:evaluationId
 exports.deleteEvaluation = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -119,7 +119,7 @@ exports.deleteEvaluation = (req, res, next) => {
 }
 
 // @desc      Get all exam of a specific patient
-// @route     GET /api/v1/patient/:patientId/exam
+// @route     GET /api/v1/patients/:patientId/exam
 exports.getAllExam = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -128,7 +128,7 @@ exports.getAllExam = (req, res, next) => {
 }
 
 // @desc      Get single exam of a specific patient
-// @route     GET /api/v1/patient/:patientId/exam/:examId
+// @route     GET /api/v1/patients/:patientId/exam/:examId
 exports.getExam = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -137,7 +137,7 @@ exports.getExam = (req, res, next) => {
 }
 
 // @desc      Create new exam for a specific patient
-// @route     POST /api/v1/patient/:patientId/exam
+// @route     POST /api/v1/patients/:patientId/exam
 exports.createExam = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -146,7 +146,7 @@ exports.createExam = (req, res, next) => {
 }
 
 // @desc      Update exam of a specific patient
-// @route     PUT /api/v1/patient/:patientId/exam/:examId
+// @route     PUT /api/v1/patients/:patientId/exam/:examId
 exports.updateExam = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -155,7 +155,7 @@ exports.updateExam = (req, res, next) => {
 }
 
 // @desc      Delete exam of a specific patient
-// @route     DELETE /api/v1/patient/:patientId/exam/:examId
+// @route     DELETE /api/v1/patients/:patientId/exam/:examId
 exports.deleteExam = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -164,7 +164,7 @@ exports.deleteExam = (req, res, next) => {
 }
 
 // @desc      Get all medical record of a specific patient
-// @route     GET /api/v1/patient/:patientId/medical-record
+// @route     GET /api/v1/patients/:patientId/medical-record
 exports.getAllMedicalRecord = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -173,7 +173,7 @@ exports.getAllMedicalRecord = (req, res, next) => {
 }
 
 // @desc      Get single medical record of a specific patient
-// @route     GET /api/v1/patient/:patientId/medical-record/:medicalRecordId
+// @route     GET /api/v1/patients/:patientId/medical-record/:medicalRecordId
 exports.getMedicalRecord = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -182,7 +182,7 @@ exports.getMedicalRecord = (req, res, next) => {
 }
 
 // @desc      Create new medical record for a specific patient
-// @route     POST /api/v1/patient/:patientId/medical-record
+// @route     POST /api/v1/patients/:patientId/medical-record
 exports.createMedicalRecord = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -191,7 +191,7 @@ exports.createMedicalRecord = (req, res, next) => {
 }
 
 // @desc      Update medical record of a specific patient
-// @route     PUT /api/v1/patient/:patientId/medical-record/:medicalRecordId
+// @route     PUT /api/v1/patients/:patientId/medical-record/:medicalRecordId
 exports.updateMedicalRecord = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -200,7 +200,7 @@ exports.updateMedicalRecord = (req, res, next) => {
 }
 
 // @desc      Delete medical record of a specific patient
-// @route     DELETE /api/v1/patient/:patientId/medical-record/:medicalRecordId
+// @route     DELETE /api/v1/patients/:patientId/medical-record/:medicalRecordId
 exports.deleteMedicalRecord = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -209,7 +209,7 @@ exports.deleteMedicalRecord = (req, res, next) => {
 }
 
 // @desc      Get all appointment history of a specific patient
-// @route     GET /api/v1/patient/:patientId/appointment-history
+// @route     GET /api/v1/patients/:patientId/appointment-history
 exports.getAllAppointmentHistory = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -218,7 +218,7 @@ exports.getAllAppointmentHistory = (req, res, next) => {
 }
 
 // @desc      Get single appointment history of a specific patient
-// @route     GET /api/v1/patient/:patientId/appointment-history/:appointmentHistoryId
+// @route     GET /api/v1/patients/:patientId/appointment-history/:appointmentHistoryId
 exports.getAppointmentHistory = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -227,7 +227,7 @@ exports.getAppointmentHistory = (req, res, next) => {
 }
 
 // @desc      Create new appointment history for a specific patient
-// @route     POST /api/v1/patient/:patientId/appointment-history
+// @route     POST /api/v1/patients/:patientId/appointment-history
 exports.createAppointmentHistory = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -236,7 +236,7 @@ exports.createAppointmentHistory = (req, res, next) => {
 }
 
 // @desc      Update appointment history of a specific patient
-// @route     PUT /api/v1/patient/:patientId/appointment-history/:appointmentHistoryId
+// @route     PUT /api/v1/patients/:patientId/appointment-history/:appointmentHistoryId
 exports.updateAppointmentHistory = (req, res, next) => {
   res.status(200).json({
     success: true,
@@ -245,7 +245,7 @@ exports.updateAppointmentHistory = (req, res, next) => {
 }
 
 // @desc      Delete appointment history of a specific patient
-// @route     DELETE /api/v1/patient/:patientId/appointment-history/:appointmentHistoryId
+// @route     DELETE /api/v1/patients/:patientId/appointment-history/:appointmentHistoryId
 exports.deleteAppointmentHistory = (req, res, next) => {
   res.status(200).json({
     success: true,

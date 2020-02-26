@@ -6,7 +6,7 @@ const {
   createAppointment,
   updateAppointment,
   deleteAppointment
-} = require('../controllers/appointment');
+} = require('../controllers/appointments');
 
 router
   .route('/')
