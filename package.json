@@ -1,7 +1,7 @@
 {
-  "name": "altaclinic",
+  "name": "altaclinic-api",
   "version": "1.0.0",
-  "description": "Medical Clinic Management System",
+  "description": "Back-End API for the Altaclinic application to manage patients, medical records, appointments, users and authentication.",
   "homepage": "",
   "main": "server.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eduardomarino/altaclinic.git"
+    "url": "git@github.com:eduardomarino/altaclinic-api.git"
   },
   "author": "Eduardo Marino Riscado (eduardomarino@gmail.com)",
   "license": "MIT"
