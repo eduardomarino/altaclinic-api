@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { protect, authorize } = require('../middleware/auth');
 const {
   getAllPatients,
   getPatient,
@@ -34,17 +33,25 @@ const {
   deleteAppointmentHistory
 } = require('../controllers/patients');
 
+const Patient = require('../models/Patient');
+
+const resultsHandler = require('../middleware/results');
+const { protect, authorize } = require('../middleware/auth');
+
+router.use(protect);
+router.use(authorize('admin', 'physician', 'user'));
+
 router
   .route('/')
-  .get(getAllPatients)
-  .post(protect, authorize('admin', 'physician', 'user'), createPatient)
+  .get(resultsHandler(Patient), getAllPatients)
+  .post(createPatient)
 ;
 
 router
   .route('/:patientId')
   .get(getPatient)
-  .put(protect, updatePatient)
-  .delete(protect, deletePatient)
+  .put(updatePatient)
+  .delete(authorize('admin'), deletePatient)
 ;
 
 router

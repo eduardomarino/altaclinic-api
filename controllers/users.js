@@ -4,7 +4,7 @@ const ErrorResponse = require('../utils/errorResponse');
 // @desc      Get all users
 // @route     GET /api/v1/users
 // @access    Private/Admin
-exports.getAllUsers = async (req, res, next) => {
+exports.getAllUsers = (req, res, next) => {
   try {
     return res.status(200).json(res.resultsHandler);
 

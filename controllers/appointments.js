@@ -3,7 +3,7 @@ const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all appointments
 // @route     GET /api/v1/appointments
-exports.getAllAppointments = async (req, res, next) => {
+exports.getAllAppointments = (req, res, next) => {
   try {
     return res.status(200).json(res.resultsHandler);
 

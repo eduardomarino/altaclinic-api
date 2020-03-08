@@ -1,31 +1,99 @@
+const Patient = require('../models/Patient');
+const ErrorResponse = require('../utils/errorResponse');
+
 // @desc      Get all patients
 // @route     GET /api/v1/patients
 exports.getAllPatients = (req, res, next) => {
-  res.status(200).json({ success: true, msg: 'Show all patients' });
+  try {
+    return res.status(200).json(res.resultsHandler);
+
+  } catch(err) {
+    return next(err);
+  }
 }
 
 // @desc      Get single patient
 // @route     GET /api/v1/patients/:patientId
-exports.getPatient = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Get patient ${req.params.patientId}` });
+exports.getPatient = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.patientId);
+
+    if (!patient) {
+      return next(
+        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+      );
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: patient
+    });
+
+  } catch(err) {
+    return next(err);
+  }
 }
 
 // @desc      Create new patient
 // @route     POST /api/v1/patients
-exports.createPatient = (req, res, next) => {
-  res.status(200).json({ success: true, msg: 'Create new patient' });
+exports.createPatient = async (req, res, next) => {
+  try {
+    const patient = await Patient.create(req.body);
+    return res.status(201).json({
+      success: true,
+      data: patient
+    });
+
+  } catch(err) {
+    return next(err);
+  }
 }
 
 // @desc      Update patient
 // @route     PUT /api/v1/patients/:patientId
-exports.updatePatient = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Update patient ${req.params.patientId}` });
+exports.updatePatient = async (req, res, next) => {
+  try {
+    const patient = await Patient.findByIdAndUpdate(req.params.patientId, req.body, {
+      new: true,
+      runValidators: true
+    });
+
+    if (!patient) {
+      return next(
+        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+      );
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: patient
+    });
+
+  } catch(err) {
+    return next(err);
+  }
 }
 
 // @desc      Delete patient
 // @route     DELETE /api/v1/patients/:patientId
-exports.deletePatient = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Delete patient ${req.params.patientId}` });
+exports.deletePatient = async (req, res, next) => {
+  try {
+    const patient = await Patient.findByIdAndDelete(req.params.patientId);
+
+    if (!patient) {
+      return next(
+        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+      );
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: {}
+    });
+
+  } catch(err) {
+    return next(err);
+  }
 }
 
 // @desc      Get all prescriptions of a specific patient
