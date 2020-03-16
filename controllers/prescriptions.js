@@ -5,6 +5,28 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/prescription
 exports.getAllPrescriptions = (req, res, next) => {
   try {
+    if (req.query.patientId) {
+      let query;
+
+      query = Prescription.find({ patient: req.query.patientId }).populate({
+        path: 'patient physician',
+        select: 'name'
+      });
+
+      const prescription = await query;
+
+      if (prescription.length === 0) {
+        return next(
+          new ErrorResponse(`Prescription not found with patientId: ${req.query.patientId}`, 404)
+        );
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: prescription
+      });
+    }
+
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
