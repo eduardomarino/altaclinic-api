@@ -23,7 +23,7 @@ router
 ;
 
 router
-  .route('/:patientId')
+  .route('/:evaluationId')
   .get(getEvaluation)
   .put(updateEvaluation)
   .delete(deleteEvaluation)

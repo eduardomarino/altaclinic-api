@@ -16,6 +16,9 @@ const auth = require('./routes/auth');
 const users = require('./routes/users');
 const patients = require('./routes/patients');
 const appointments = require('./routes/appointments');
+const evaluations = require('./routes/evaluations');
+const prescriptions = require('./routes/prescriptions');
+const exams = require('./routes/exams');
 
 const app = express();
 
@@ -37,6 +40,9 @@ app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', users);
 app.use('/api/v1/patients', patients);
 app.use('/api/v1/appointments', appointments);
+app.use('/api/v1/evaluations', evaluations);
+app.use('/api/v1/prescriptions', prescriptions);
+app.use('/api/v1/exams', exams);
 
 app.use(errorHandler);
 

@@ -6,7 +6,7 @@ const {
   createPrescription,
   updatePrescription,
   deletePrescription
-} = require('../controllers/patients');
+} = require('../controllers/prescriptions');
 
 const Prescription = require('../models/Prescription');
 
@@ -23,7 +23,7 @@ router
 ;
 
 router
-  .route('/:patientId')
+  .route('/:prescriptionId')
   .get(getPrescription)
   .put(updatePrescription)
   .delete(deletePrescription)

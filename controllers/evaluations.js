@@ -2,8 +2,8 @@ const Evaluation = require('../models/Evaluation');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all evaluations of a specific patient
-// @route     GET /api/v1/evaluation
-exports.getAllEvaluations = (req, res, next) => {
+// @route     GET /api/v1/evaluations
+exports.getAllEvaluations = async (req, res, next) => {
   try {
     if (req.query.patientId) {
       let query;
@@ -35,7 +35,7 @@ exports.getAllEvaluations = (req, res, next) => {
 }
 
 // @desc      Get single evaluation of a specific patient
-// @route     GET /api/v1/evaluation/:evaluationId
+// @route     GET /api/v1/evaluations/:evaluationId
 exports.getEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findById(req.params.evaluationId);
@@ -57,7 +57,7 @@ exports.getEvaluation = async (req, res, next) => {
 }
 
 // @desc      Create new evaluation for a specific patient
-// @route     POST /api/v1/evaluation
+// @route     POST /api/v1/evaluations
 exports.createEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.create(req.body);
@@ -72,7 +72,7 @@ exports.createEvaluation = async (req, res, next) => {
 }
 
 // @desc      Update evaluation of a specific patient
-// @route     PUT /api/v1/evaluation/:evaluationId
+// @route     PUT /api/v1/evaluations/:evaluationId
 exports.updateEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findByIdAndUpdate(req.params.evaluationId, req.body, {
@@ -97,8 +97,8 @@ exports.updateEvaluation = async (req, res, next) => {
 }
 
 // @desc      Delete evaluation of a specific patient
-// @route     DELETE /api/v1/evaluation/:evaluationId
-exports.deleteEvaluation = (req, res, next) => {
+// @route     DELETE /api/v1/evaluations/:evaluationId
+exports.deleteEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findByIdAndDelete(req.params.evaluationId);
 

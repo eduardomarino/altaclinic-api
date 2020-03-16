@@ -2,8 +2,8 @@ const Prescription = require('../models/Prescription');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all prescriptions of a specific patient
-// @route     GET /api/v1/prescription
-exports.getAllPrescriptions = (req, res, next) => {
+// @route     GET /api/v1/prescriptions
+exports.getAllPrescriptions = async (req, res, next) => {
   try {
     if (req.query.patientId) {
       let query;
@@ -35,7 +35,7 @@ exports.getAllPrescriptions = (req, res, next) => {
 }
 
 // @desc      Get single prescription of a specific patient
-// @route     GET /api/v1/prescription/:prescriptionId
+// @route     GET /api/v1/prescriptions/:prescriptionId
 exports.getPrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findById(req.params.prescriptionId);
@@ -57,7 +57,7 @@ exports.getPrescription = async (req, res, next) => {
 }
 
 // @desc      Create new prescription for a specific patient
-// @route     POST /api/v1/prescription
+// @route     POST /api/v1/prescriptions
 exports.createPrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.create(req.body);
@@ -72,7 +72,7 @@ exports.createPrescription = async (req, res, next) => {
 }
 
 // @desc      Update prescription of a specific patient
-// @route     PUT /api/v1/prescription/:prescriptionId
+// @route     PUT /api/v1/prescriptions/:prescriptionId
 exports.updatePrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findByIdAndUpdate(req.params.prescriptionId, req.body, {
@@ -97,8 +97,8 @@ exports.updatePrescription = async (req, res, next) => {
 }
 
 // @desc      Delete prescription of a specific patient
-// @route     DELETE /api/v1/prescription/:prescriptionId
-exports.deletePrescription = (req, res, next) => {
+// @route     DELETE /api/v1/prescriptions/:prescriptionId
+exports.deletePrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findByIdAndDelete(req.params.prescriptionId);
 
