@@ -5,6 +5,28 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/exam
 exports.getAllExams = (req, res, next) => {
   try {
+    if (req.query.patientId) {
+      let query;
+
+      query = Exam.find({ patient: req.query.patientId }).populate({
+        path: 'patient physician',
+        select: 'name'
+      });
+
+      const exam = await query;
+
+      if (exam.length === 0) {
+        return next(
+          new ErrorResponse(`Exam not found with patientId: ${req.query.patientId}`, 404)
+        );
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: exam
+      });
+    }
+
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
