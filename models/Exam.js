@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PrescriptionSchema = new mongoose.Schema({
+const ExamSchema = new mongoose.Schema({
   exam: {
     type: String,
     required: true,
@@ -33,4 +33,4 @@ const PrescriptionSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Prescription', PrescriptionSchema);
+module.exports = mongoose.model('Exam', ExamSchema);
