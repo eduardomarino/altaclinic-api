@@ -5,6 +5,28 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/evaluation
 exports.getAllEvaluations = (req, res, next) => {
   try {
+    if (req.query.patientId) {
+      let query;
+
+      query = Evaluation.find({ patient: req.query.patientId }).populate({
+        path: 'patient physician',
+        select: 'name'
+      });
+
+      const evaluation = await query;
+
+      if (evaluation.length === 0) {
+        return next(
+          new ErrorResponse(`Evaluation not found with patientId: ${req.query.patientId}`, 404)
+        );
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: evaluation
+      });
+    }
+
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
