@@ -3,8 +3,30 @@ const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all appointments
 // @route     GET /api/v1/appointments
-exports.getAllAppointments = (req, res, next) => {
+exports.getAllAppointments = async (req, res, next) => {
   try {
+    if (req.query.patientId) {
+      let query;
+
+      query = Appointment.find({ patient: req.query.patientId }).populate({
+        path: 'patient physician',
+        select: 'name telephone email healthPlan'
+      });
+
+      const appointment = await query;
+
+      if (appointment.length === 0) {
+        return next(
+          new ErrorResponse(`Appointment not found with patientId: ${req.query.patientId}`, 404)
+        );
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: appointment
+      });
+    }
+
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
