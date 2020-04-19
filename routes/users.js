@@ -3,8 +3,6 @@ const router = express.Router();
 const {
   getAllUsers,
   getUser,
-  createUser,
-  updateUser,
   deleteUser
 } = require('../controllers/users');
 
@@ -19,13 +17,11 @@ router.use(authorize('admin'));
 router
   .route('/')
   .get(resultsHandler(User), getAllUsers)
-  .post(createUser)
 ;
 
 router
   .route('/:userId')
   .get(getUser)
-  .put(updateUser)
   .delete(deleteUser)
 ;
 

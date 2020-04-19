@@ -36,48 +36,6 @@ exports.getUser = async (req, res, next) => {
   }
 }
 
-// @desc      Create new user
-// @route     POST /api/v1/users
-// @access    Private/Admin
-exports.createUser = async (req, res, next) => {
-  try {
-    const user = await User.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: user
-    });
-
-  } catch(err) {
-    return next(err);
-  }
-}
-
-// @desc      Update user
-// @route     PUT /api/v1/users/:userId
-// @access    Private/Admin
-exports.updateUser = async (req, res, next) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.userId, req.body, {
-      new: true,
-      runValidators: true
-    });
-
-    if (!user) {
-      return next(
-        new ErrorResponse(`User not found with id: ${req.params.userId}`, 404)
-      );
-    }
-
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
-
-  } catch(err) {
-    return next(err);
-  }
-}
-
 // @desc      Delete user
 // @route     DELETE /api/v1/users/:userId
 // @access    Private/Admin
