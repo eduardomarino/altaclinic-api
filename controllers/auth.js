@@ -8,10 +8,11 @@ const sendEmail = require('../utils/sendEmail');
 // @access    Private/Admin
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, profile, password } = req.body;
+    const { firstName, lastName, email, profile, password } = req.body;
 
     const user = await User.create({
-      name,
+      firstName,
+      lastName,
       email,
       profile,
       password
@@ -30,7 +31,8 @@ exports.register = async (req, res, next) => {
 exports.updateUser = async (req, res, next) => {
   try {
     const fieldsToUpdate = {
-      name: req.body.name,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email
     };
 

@@ -2,11 +2,17 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 
 const PatientSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    required: [true, 'A name is required.'],
+    required: [true, 'A first name is required'],
     trim: true,
-    maxlength: [50, 'Name can not be more than 50 characters.']
+    maxlength: [25, 'First name can not be more than 25 characters']
+  },
+  lastName: {
+    type: String,
+    required: [true, 'A last name is required'],
+    trim: true,
+    maxlength: [25, 'Last name can not be more than 25 characters']
   },
   slug: String,
   birthdate: {
@@ -40,7 +46,7 @@ const PatientSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'A e-mail is required.'],
+    required: [true, 'An e-mail is required.'],
     unique: true,
     trim: true,
     maxlength: [50, 'E-mail can not be more than 50 characters.'],
@@ -60,7 +66,7 @@ const PatientSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: [true, 'A address is required.']
+    required: [true, 'An address is required.']
   },
   createdAt: {
     type: Date,

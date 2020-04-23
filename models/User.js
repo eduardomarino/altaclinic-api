@@ -5,11 +5,17 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    required: [true, 'A name is required'],
+    required: [true, 'A first name is required'],
     trim: true,
-    maxlength: [50, 'Name can not be more than 50 characters']
+    maxlength: [25, 'First name can not be more than 25 characters']
+  },
+  lastName: {
+    type: String,
+    required: [true, 'A last name is required'],
+    trim: true,
+    maxlength: [25, 'Last name can not be more than 25 characters']
   },
   slug: String,
   email: {
@@ -48,7 +54,8 @@ const UserSchema = new mongoose.Schema({
 
 // Create slug
 UserSchema.pre('save', function(next) {
-  this.slug = slugify(this.name, { lower: true });
+  const str = `${this.firstName} ${this.lastName}`;
+  this.slug = slugify(str, { lower: true });
   next();
 });
 
