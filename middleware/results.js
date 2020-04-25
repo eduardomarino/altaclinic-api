@@ -8,8 +8,8 @@ const resultsHandler = model => async (req, res, next) => {
 
   let queryStr = JSON.stringify(reqQuery);
 
-  // Create operators ($gt, $gte, $lt, $lte and $in)
-  queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+  // Create operators ($eq, $gt, $gte, $lt, $lte and $in)
+  queryStr = queryStr.replace(/\b(eq|gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
   let query = model.find(JSON.parse(queryStr));
 
