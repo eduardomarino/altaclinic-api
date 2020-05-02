@@ -34,7 +34,7 @@ const PatientSchema = new mongoose.Schema({
       'Use a valid CPF.'
     ]
   },
-  healthPlan: {
+  healthInsurance: {
     type: String,
     required: true,
     enum: [
@@ -42,7 +42,8 @@ const PatientSchema = new mongoose.Schema({
       'Plan 1',
       'Plan 2',
       'Plan 3'
-    ]
+    ],
+    default: 'None'
   },
   email: {
     type: String,
