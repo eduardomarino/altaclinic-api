@@ -13,19 +13,19 @@ const ExamSchema = new mongoose.Schema({
   },
   detail: {
     type: String,
-    required: [true, 'A detail is required.'],
+    required: [true, 'Exam detail is required'],
     trim: true,
-    maxlength: [500, 'Detail can not be more than 500 characters.']
+    maxlength: [500, 'Exam detail can not be more than 500 characters']
   },
   patient: {
     type: mongoose.Schema.ObjectId,
     ref: 'Patient',
-    required: [true, 'A patient is required.']
+    required: [true, 'A patient is required']
   },
   physician: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: [true, 'A physician is required.']
+    required: [true, 'A physician is required']
   },
   createdAt: {
     type: Date,
