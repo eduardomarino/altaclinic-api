@@ -77,7 +77,8 @@ const PatientSchema = new mongoose.Schema({
 
 // Create slug
 PatientSchema.pre('save', function(next) {
-  this.slug = slugify(this.name, { lower: true });
+  const str = `${this.firstName} ${this.lastName}`;
+  this.slug = slugify(str, { lower: true });
   next();
 });
 
