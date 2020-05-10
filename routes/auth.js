@@ -12,7 +12,7 @@ const {
 } = require('../controllers/auth');
 
 router.post('/register', protect, authorize('admin'), register);
-router.put('/updateuser', protect, updateUser);
+router.put('/updateuser/:userId', protect, updateUser);
 router.post('/login', login);
 router.get('/me', protect, getMe);
 router.post('/forgotpassword', forgotPassword);
