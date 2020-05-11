@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   getAllUsers,
   getUser,
+  updateUser,
   deleteUser
 } = require('../controllers/users');
 
@@ -22,6 +23,7 @@ router
 router
   .route('/:userId')
   .get(getUser)
+  .put(updateUser)
   .delete(deleteUser)
 ;
 

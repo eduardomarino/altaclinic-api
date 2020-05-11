@@ -25,32 +25,6 @@ exports.register = async (req, res, next) => {
   }
 }
 
-// @desc      Update user data
-// @route     PUT /api/v1/auth/updateuser/:userId
-// @access    Private
-exports.updateUser = async (req, res, next) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.userId, req.body, {
-      new: true,
-      runValidators: true,
-    });
-
-    if (!user) {
-      return next(
-        new ErrorResponse(`User not found with id: ${req.params.userId}`, 404)
-      );
-    }
-
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
-
-  } catch(err) {
-    return next(err);
-  }
-}
-
 // @desc      Login user
 // @route     POST /api/v1/auth/login
 exports.login = async (req, res, next) => {
