@@ -56,7 +56,7 @@ const PatientSchema = new mongoose.Schema({
     required: [true, 'A telephone number is required'],
     trim: true,
     match: [
-      /^\(\d{2}\) \d{4,5}-\d{4}$/gi,
+      /^\([1-9]{2}\) [0-9]{4,5}-[0-9]{4}$/,
       'Use a valid telephone number'
     ]
   },
