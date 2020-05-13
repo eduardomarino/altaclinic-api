@@ -15,14 +15,9 @@ const PatientSchema = new mongoose.Schema({
     maxlength: [25, 'Last name can not be more than 25 characters']
   },
   slug: String,
-  birthdate: {
-    type: Date,
-    required: [true, 'Birthdate is required'],
-    trim: true,
-    match: [
-      /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i,
-      'Use a valid birthdate'
-    ]
+  age: {
+    type: String,
+    required: [true, 'Age is required'],
   },
   cpf: {
     type: String,
