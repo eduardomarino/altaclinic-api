@@ -10,7 +10,7 @@ exports.getAllAppointments = async (req, res, next) => {
 
       query = Appointment.find({ patient: req.query.patientId }).populate({
         path: 'patient physician',
-        select: 'name telephone email healthPlan'
+        select: 'firstName lastName telephone email healthInsurance'
       });
 
       const appointment = await query;
