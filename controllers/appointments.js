@@ -5,6 +5,7 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route     GET /api/v1/appointments
 exports.getAllAppointments = async (req, res, next) => {
   try {
+    // Get all patient appointments
     if (req.query.patientId) {
       let query;
 
@@ -27,6 +28,7 @@ exports.getAllAppointments = async (req, res, next) => {
       });
     }
 
+    // Get all appointments
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {

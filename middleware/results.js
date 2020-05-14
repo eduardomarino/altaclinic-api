@@ -34,7 +34,14 @@ const resultsHandler = model => async (req, res, next) => {
   const endIndex = page * limit;
   const total = await model.countDocuments();
 
-  query = query.skip(startIndex).limit(limit);
+  if (req.baseUrl === '/api/v1/appointments') {
+    query = query.skip(startIndex).limit(limit).populate({
+      path: 'patient physician',
+      select: 'firstName lastName telephone email healthInsurance'
+    });
+  } else {
+    query = query.skip(startIndex).limit(limit);
+  }
 
   const results = await query;
 
