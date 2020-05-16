@@ -10,7 +10,7 @@ exports.getAllPrescriptions = async (req, res, next) => {
 
       query = Prescription.find({ patient: req.query.patientId }).populate({
         path: 'patient physician',
-        select: 'name'
+        select: 'firstName lastName age telephone email healthInsurance'
       });
 
       const prescription = await query;

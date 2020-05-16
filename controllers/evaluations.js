@@ -10,7 +10,7 @@ exports.getAllEvaluations = async (req, res, next) => {
 
       query = Evaluation.find({ patient: req.query.patientId }).populate({
         path: 'patient physician',
-        select: 'name'
+        select: 'firstName lastName age telephone email healthInsurance'
       });
 
       const evaluation = await query;

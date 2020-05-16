@@ -37,7 +37,7 @@ const resultsHandler = model => async (req, res, next) => {
   if (req.baseUrl === '/api/v1/appointments' || req.baseUrl === '/api/v1/prescriptions' || req.baseUrl === '/api/v1/exams') {
     query = query.skip(startIndex).limit(limit).populate({
       path: 'patient physician',
-      select: 'firstName lastName telephone email healthInsurance'
+      select: 'firstName lastName age telephone email healthInsurance'
     });
   } else {
     query = query.skip(startIndex).limit(limit);
