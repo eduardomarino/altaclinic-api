@@ -3,6 +3,7 @@ const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all patients
 // @route     GET /api/v1/patients
+// @access    Private/User/Admin
 exports.getAllPatients = (req, res, next) => {
   try {
     return res.status(200).json(res.resultsHandler);
@@ -14,6 +15,7 @@ exports.getAllPatients = (req, res, next) => {
 
 // @desc      Get single patient
 // @route     GET /api/v1/patients/:patientId
+// @access    Private/User/Admin
 exports.getPatient = async (req, res, next) => {
   try {
     const patient = await Patient.findById(req.params.patientId);
@@ -36,6 +38,7 @@ exports.getPatient = async (req, res, next) => {
 
 // @desc      Create new patient
 // @route     POST /api/v1/patients
+// @access    Private/User/Admin
 exports.createPatient = async (req, res, next) => {
   try {
     const patient = await Patient.create(req.body);
@@ -51,6 +54,7 @@ exports.createPatient = async (req, res, next) => {
 
 // @desc      Update patient
 // @route     PUT /api/v1/patients/:patientId
+// @access    Private/User/Admin
 exports.updatePatient = async (req, res, next) => {
   try {
     const patient = await Patient.findByIdAndUpdate(req.params.patientId, req.body, {
@@ -76,6 +80,7 @@ exports.updatePatient = async (req, res, next) => {
 
 // @desc      Delete patient
 // @route     DELETE /api/v1/patients/:patientId
+// @access    Private/User/Admin
 exports.deletePatient = async (req, res, next) => {
   try {
     const patient = await Patient.findByIdAndDelete(req.params.patientId);

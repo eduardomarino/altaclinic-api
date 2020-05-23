@@ -1,10 +1,12 @@
 const Exam = require('../models/Exam');
 const ErrorResponse = require('../utils/errorResponse');
 
-// @desc      Get all exams of a specific patient
+// @desc      Get all exams
 // @route     GET /api/v1/exams
+// @access    Private/Physician/Admin
 exports.getAllExams = async (req, res, next) => {
   try {
+    // Get all patient exams
     if (req.query.patientId) {
       let query;
 
@@ -27,6 +29,7 @@ exports.getAllExams = async (req, res, next) => {
       });
     }
 
+    // Get all exams
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
@@ -34,8 +37,9 @@ exports.getAllExams = async (req, res, next) => {
   }
 }
 
-// @desc      Get single exam of a specific patient
+// @desc      Get single exam
 // @route     GET /api/v1/exams/:examId
+// @access    Private/Physician/Admin
 exports.getExam = async (req, res, next) => {
   try {
     const exam = await Exam.findById(req.params.examId);
@@ -56,8 +60,9 @@ exports.getExam = async (req, res, next) => {
   }
 }
 
-// @desc      Create new exam for a specific patient
+// @desc      Create new exam
 // @route     POST /api/v1/exams
+// @access    Private/Physician/Admin
 exports.createExam = async (req, res, next) => {
   try {
     const exam = await Exam.create(req.body);
@@ -71,8 +76,9 @@ exports.createExam = async (req, res, next) => {
   }
 }
 
-// @desc      Update exam of a specific patient
+// @desc      Update exam
 // @route     PUT /api/v1/exams/:examId
+// @access    Private/Physician/Admin
 exports.updateExam = async (req, res, next) => {
   try {
     const exam = await Exam.findByIdAndUpdate(req.params.examId, req.body, {
@@ -96,8 +102,9 @@ exports.updateExam = async (req, res, next) => {
   }
 }
 
-// @desc      Delete exam of a specific patient
+// @desc      Delete exam
 // @route     DELETE /api/v1/exams/:examId
+// @access    Private/Physician/Admin
 exports.deleteExam = async (req, res, next) => {
   try {
     const exam = await Exam.findByIdAndDelete(req.params.examId);

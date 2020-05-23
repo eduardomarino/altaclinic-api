@@ -1,10 +1,12 @@
 const Evaluation = require('../models/Evaluation');
 const ErrorResponse = require('../utils/errorResponse');
 
-// @desc      Get all evaluations of a specific patient
+// @desc      Get all evaluations
 // @route     GET /api/v1/evaluations
+// @access    Private/Physician/Admin
 exports.getAllEvaluations = async (req, res, next) => {
   try {
+    // Get all patient evaluations
     if (req.query.patientId) {
       let query;
 
@@ -27,6 +29,7 @@ exports.getAllEvaluations = async (req, res, next) => {
       });
     }
 
+    // Get all evaluations
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
@@ -34,8 +37,9 @@ exports.getAllEvaluations = async (req, res, next) => {
   }
 }
 
-// @desc      Get single evaluation of a specific patient
+// @desc      Get single evaluation
 // @route     GET /api/v1/evaluations/:evaluationId
+// @access    Private/Physician/Admin
 exports.getEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findById(req.params.evaluationId);
@@ -56,8 +60,9 @@ exports.getEvaluation = async (req, res, next) => {
   }
 }
 
-// @desc      Create new evaluation for a specific patient
+// @desc      Create new evaluation
 // @route     POST /api/v1/evaluations
+// @access    Private/Physician/Admin
 exports.createEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.create(req.body);
@@ -71,8 +76,9 @@ exports.createEvaluation = async (req, res, next) => {
   }
 }
 
-// @desc      Update evaluation of a specific patient
+// @desc      Update evaluation
 // @route     PUT /api/v1/evaluations/:evaluationId
+// @access    Private/Physician/Admin
 exports.updateEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findByIdAndUpdate(req.params.evaluationId, req.body, {
@@ -96,8 +102,9 @@ exports.updateEvaluation = async (req, res, next) => {
   }
 }
 
-// @desc      Delete evaluation of a specific patient
+// @desc      Delete evaluation
 // @route     DELETE /api/v1/evaluations/:evaluationId
+// @access    Private/Physician/Admin
 exports.deleteEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.findByIdAndDelete(req.params.evaluationId);

@@ -1,10 +1,12 @@
 const Prescription = require('../models/Prescription');
 const ErrorResponse = require('../utils/errorResponse');
 
-// @desc      Get all prescriptions of a specific patient
+// @desc      Get all prescriptions
 // @route     GET /api/v1/prescriptions
+// @access    Private/Physician/Admin
 exports.getAllPrescriptions = async (req, res, next) => {
   try {
+    // Get all patient prescriptions
     if (req.query.patientId) {
       let query;
 
@@ -27,6 +29,7 @@ exports.getAllPrescriptions = async (req, res, next) => {
       });
     }
 
+    // Get all prescriptions
     return res.status(200).json(res.resultsHandler);
 
   } catch(err) {
@@ -34,8 +37,9 @@ exports.getAllPrescriptions = async (req, res, next) => {
   }
 }
 
-// @desc      Get single prescription of a specific patient
+// @desc      Get single prescription
 // @route     GET /api/v1/prescriptions/:prescriptionId
+// @access    Private/Physician/Admin
 exports.getPrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findById(req.params.prescriptionId);
@@ -56,8 +60,9 @@ exports.getPrescription = async (req, res, next) => {
   }
 }
 
-// @desc      Create new prescription for a specific patient
+// @desc      Create new prescription
 // @route     POST /api/v1/prescriptions
+// @access    Private/Physician/Admin
 exports.createPrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.create(req.body);
@@ -71,8 +76,9 @@ exports.createPrescription = async (req, res, next) => {
   }
 }
 
-// @desc      Update prescription of a specific patient
+// @desc      Update prescription
 // @route     PUT /api/v1/prescriptions/:prescriptionId
+// @access    Private/Physician/Admin
 exports.updatePrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findByIdAndUpdate(req.params.prescriptionId, req.body, {
@@ -96,8 +102,9 @@ exports.updatePrescription = async (req, res, next) => {
   }
 }
 
-// @desc      Delete prescription of a specific patient
+// @desc      Delete prescription
 // @route     DELETE /api/v1/prescriptions/:prescriptionId
+// @access    Private/Physician/Admin
 exports.deletePrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.findByIdAndDelete(req.params.prescriptionId);

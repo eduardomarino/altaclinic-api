@@ -3,6 +3,7 @@ const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all appointments
 // @route     GET /api/v1/appointments
+// @access    Private
 exports.getAllAppointments = async (req, res, next) => {
   try {
     // Get all patient appointments
@@ -38,6 +39,7 @@ exports.getAllAppointments = async (req, res, next) => {
 
 // @desc      Get single appointment
 // @route     GET /api/v1/appointments/:appointmentId
+// @access    Private
 exports.getAppointment = async (req, res, next) => {
   try {
     const appointment = await Appointment.findById(req.params.appointmentId);
@@ -60,6 +62,7 @@ exports.getAppointment = async (req, res, next) => {
 
 // @desc      Create new appointment
 // @route     POST /api/v1/appointments
+// @access    Private
 exports.createAppointment = async (req, res, next) => {
   try {
     const appointment = await Appointment.create(req.body);
@@ -75,6 +78,7 @@ exports.createAppointment = async (req, res, next) => {
 
 // @desc      Update appointment
 // @route     PUT /api/v1/appointments/:appointmentId
+// @access    Private
 exports.updateAppointment = async (req, res, next) => {
   try {
     const appointment = await Appointment.findByIdAndUpdate(req.params.appointmentId, req.body, {
@@ -100,6 +104,7 @@ exports.updateAppointment = async (req, res, next) => {
 
 // @desc      Delete appointment
 // @route     DELETE /api/v1/appointments/:appointmentId
+// @access    Private
 exports.deleteAppointment = async (req, res, next) => {
   try {
     const appointment = await Appointment.findByIdAndDelete(req.params.appointmentId);
