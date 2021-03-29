@@ -29,14 +29,16 @@ app.use(express.json());
 // Cookie parser
 app.use(cookieParser());
 
+// PORT definition
 const PORT = process.env.PORT || 5000;
 
 // Dev logging middleware and enables cors
 if (process.env.NODE_ENV === 'development') {
   app.use(logger);
-  app.use(cors());
-  app.options('*', cors());
 }
+
+// CORS
+app.use(cors());
 
 // Mount routers
 app.use('/api/v1/auth', auth);
@@ -47,6 +49,7 @@ app.use('/api/v1/evaluations', evaluations);
 app.use('/api/v1/prescriptions', prescriptions);
 app.use('/api/v1/exams', exams);
 
+// Error handler
 app.use(errorHandler);
 
 const server = app.listen(PORT,
