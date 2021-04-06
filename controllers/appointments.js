@@ -23,10 +23,7 @@ exports.getAllAppointments = async (req, res, next) => {
         );
       }
 
-      return res.status(200).json({
-        success: true,
-        data: appointment
-      });
+      return res.status(200).json({ data: appointment });
     }
 
     // Get all appointments
@@ -50,10 +47,7 @@ exports.getAppointment = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: appointment
-    });
+    return res.status(200).json({ data: appointment });
 
   } catch(err) {
     return next(err);
@@ -66,10 +60,7 @@ exports.getAppointment = async (req, res, next) => {
 exports.createAppointment = async (req, res, next) => {
   try {
     const appointment = await Appointment.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: appointment
-    });
+    return res.status(201).json({ data: appointment });
 
   } catch(err) {
     return next(err);
@@ -92,10 +83,7 @@ exports.updateAppointment = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: appointment
-    });
+    return res.status(200).json({ data: appointment });
 
   } catch(err) {
     return next(err);
@@ -115,10 +103,7 @@ exports.deleteAppointment = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

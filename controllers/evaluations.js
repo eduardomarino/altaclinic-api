@@ -23,10 +23,7 @@ exports.getAllEvaluations = async (req, res, next) => {
         );
       }
 
-      return res.status(200).json({
-        success: true,
-        data: evaluation
-      });
+      return res.status(200).json({ data: evaluation });
     }
 
     // Get all evaluations
@@ -50,10 +47,7 @@ exports.getEvaluation = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: evaluation
-    });
+    return res.status(200).json({ data: evaluation });
 
   } catch(err) {
     return next(err);
@@ -66,10 +60,7 @@ exports.getEvaluation = async (req, res, next) => {
 exports.createEvaluation = async (req, res, next) => {
   try {
     const evaluation = await Evaluation.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: evaluation
-    });
+    return res.status(201).json({ data: evaluation });
 
   } catch(err) {
     return next(err);
@@ -92,10 +83,7 @@ exports.updateEvaluation = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: evaluation
-    });
+    return res.status(200).json({ data: evaluation });
 
   } catch(err) {
     return next(err);
@@ -115,10 +103,7 @@ exports.deleteEvaluation = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

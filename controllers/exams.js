@@ -23,10 +23,7 @@ exports.getAllExams = async (req, res, next) => {
         );
       }
 
-      return res.status(200).json({
-        success: true,
-        data: exam
-      });
+      return res.status(200).json({ data: exam });
     }
 
     // Get all exams
@@ -50,10 +47,7 @@ exports.getExam = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: exam
-    });
+    return res.status(200).json({ data: exam });
 
   } catch(err) {
     return next(err);
@@ -66,10 +60,7 @@ exports.getExam = async (req, res, next) => {
 exports.createExam = async (req, res, next) => {
   try {
     const exam = await Exam.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: exam
-    });
+    return res.status(201).json({ data: exam });
 
   } catch(err) {
     return next(err);
@@ -92,10 +83,7 @@ exports.updateExam = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: exam
-    });
+    return res.status(200).json({ data: exam });
 
   } catch(err) {
     return next(err);
@@ -115,10 +103,7 @@ exports.deleteExam = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

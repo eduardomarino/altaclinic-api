@@ -23,10 +23,7 @@ exports.getAllPrescriptions = async (req, res, next) => {
         );
       }
 
-      return res.status(200).json({
-        success: true,
-        data: prescription
-      });
+      return res.status(200).json({ data: prescription });
     }
 
     // Get all prescriptions
@@ -50,10 +47,7 @@ exports.getPrescription = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: prescription
-    });
+    return res.status(200).json({ data: prescription });
 
   } catch(err) {
     return next(err);
@@ -66,10 +60,7 @@ exports.getPrescription = async (req, res, next) => {
 exports.createPrescription = async (req, res, next) => {
   try {
     const prescription = await Prescription.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: prescription
-    });
+    return res.status(201).json({ data: prescription });
 
   } catch(err) {
     return next(err);
@@ -92,10 +83,7 @@ exports.updatePrescription = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: prescription
-    });
+    return res.status(200).json({ data: prescription });
 
   } catch(err) {
     return next(err);
@@ -115,10 +103,7 @@ exports.deletePrescription = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

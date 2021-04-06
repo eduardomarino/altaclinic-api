@@ -26,10 +26,7 @@ exports.getUser = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
+    return res.status(200).json({ data: user });
 
   } catch(err) {
     return next(err);
@@ -52,10 +49,7 @@ exports.updateUser = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
+    return res.status(200).json({ data: user });
 
   } catch(err) {
     return next(err);
@@ -75,10 +69,7 @@ exports.deleteUser = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

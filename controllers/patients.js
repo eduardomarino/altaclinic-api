@@ -26,10 +26,7 @@ exports.getPatient = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: patient
-    });
+    return res.status(200).json({ data: patient });
 
   } catch(err) {
     return next(err);
@@ -42,10 +39,7 @@ exports.getPatient = async (req, res, next) => {
 exports.createPatient = async (req, res, next) => {
   try {
     const patient = await Patient.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: patient
-    });
+    return res.status(201).json({ data: patient });
 
   } catch(err) {
     return next(err);
@@ -68,10 +62,7 @@ exports.updatePatient = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: patient
-    });
+    return res.status(200).json({ data: patient });
 
   } catch(err) {
     return next(err);
@@ -91,10 +82,7 @@ exports.deletePatient = async (req, res, next) => {
       );
     }
 
-    return res.status(200).json({
-      success: true,
-      data: {}
-    });
+    return res.status(204);
 
   } catch(err) {
     return next(err);

@@ -64,10 +64,7 @@ exports.getMe = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id);
 
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
+    return res.status(200).json({ data: user });
 
   } catch(err) {
     return next(err);
@@ -102,7 +99,7 @@ exports.forgotPassword = async (req, res, next) => {
         message
       });
 
-      res.status(200).json({ success: true, data: 'E-mail sent' });
+      res.status(200).json({ data: 'E-mail sent' });
 
     } catch(err) {
       console.log(err);
@@ -114,10 +111,7 @@ exports.forgotPassword = async (req, res, next) => {
       return next(new ErrorResponse('E-mail could not be sent', 500));
     }
 
-    return res.status(200).json({
-      success: true,
-      data: user
-    });
+    return res.status(200).json({ data: user });
 
   } catch(err) {
     return next(err);
@@ -194,7 +188,6 @@ const sendTokenResponse = (user, statusCode, res) => {
     .status(statusCode)
     .cookie('token', token, options)
     .json({
-      success: true,
       token,
       name: user.name,
       profile: user.profile
