@@ -10,8 +10,7 @@ Built with: Node.js, Express.js and MongoDB.
 - Start the server with `npm run dev`
 
 ### Production Mode
-- To create a production build use `npm run build`
-- Navigate to the build directory and start the server with `npm start`
+- Start the server with `npm start`
 
 ## License:
 The content of this repository is licensed under a MIT license.
