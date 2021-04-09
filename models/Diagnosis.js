@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const EvaluationSchema = new mongoose.Schema({
+const DiagnosisSchema = new mongoose.Schema({
   date: {
     type: String,
     required: [true, 'A date is required'],
@@ -19,11 +19,11 @@ const EvaluationSchema = new mongoose.Schema({
       'Use a valid time'
     ]
   },
-  evaluation: {
+  diagnosis: {
     type: String,
-    required: [true, 'An evaluation is required'],
+    required: [true, 'A diagnosis is required'],
     trim: true,
-    maxlength: [500, 'Evaluation can not be more than 500 characters']
+    maxlength: [5000, 'Diagnosis can not be more than 5000 characters']
   },
   patient: {
     type: mongoose.Schema.ObjectId,
@@ -41,4 +41,4 @@ const EvaluationSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Evaluation', EvaluationSchema);
+module.exports = mongoose.model('Diagnosis', DiagnosisSchema);
