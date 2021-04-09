@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ExamSchema = new mongoose.Schema({
+const ExaminationSchema = new mongoose.Schema({
   date: {
     type: String,
     required: [true, 'A date is required'],
@@ -33,9 +33,9 @@ const ExamSchema = new mongoose.Schema({
   },
   detail: {
     type: String,
-    required: [true, 'Exam detail is required'],
+    required: [true, 'Examination detail is required'],
     trim: true,
-    maxlength: [500, 'Exam detail can not be more than 500 characters']
+    maxlength: [5000, 'Examination detail can not be more than 5000 characters']
   },
   patient: {
     type: mongoose.Schema.ObjectId,
@@ -53,4 +53,4 @@ const ExamSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Exam', ExamSchema);
+module.exports = mongoose.model('Examination', ExaminationSchema);
