@@ -14,7 +14,7 @@ const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');
 
 router.use(protect);
-router.use(authorize('admin', 'user'));
+router.use(authorize('admin', 'physician', 'user'));
 
 router
   .route('/')
