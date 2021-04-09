@@ -43,7 +43,7 @@ exports.getAppointment = async (req, res, next) => {
 
     if (!appointment) {
       return next(
-        new ErrorResponse(`Appointment not found with id: ${req.params.appointmentId}`, 404)
+        new ErrorResponse(`Appointment not found with appointmentId: ${req.params.appointmentId}`, 404)
       );
     }
 
@@ -79,7 +79,7 @@ exports.updateAppointment = async (req, res, next) => {
 
     if (!appointment) {
       return next(
-        new ErrorResponse(`Appointment not found with id: ${req.params.appointmentId}`, 404)
+        new ErrorResponse(`Appointment not found with appointmentId: ${req.params.appointmentId}`, 404)
       );
     }
 
@@ -99,7 +99,7 @@ exports.deleteAppointment = async (req, res, next) => {
 
     if (!appointment) {
       return next(
-        new ErrorResponse(`Appointment not found with id: ${req.params.appointmentId}`, 404)
+        new ErrorResponse(`Appointment not found with appointmentId: ${req.params.appointmentId}`, 404)
       );
     }
 

@@ -43,7 +43,7 @@ exports.getPrescription = async (req, res, next) => {
 
     if (!prescription) {
       return next(
-        new ErrorResponse(`Prescription not found with id: ${req.params.prescriptionId}`, 404)
+        new ErrorResponse(`Prescription not found with prescriptionId: ${req.params.prescriptionId}`, 404)
       );
     }
 
@@ -79,7 +79,7 @@ exports.updatePrescription = async (req, res, next) => {
 
     if (!prescription) {
       return next(
-        new ErrorResponse(`Prescription not found with id: ${req.params.prescriptionId}`, 404)
+        new ErrorResponse(`Prescription not found with prescriptionId: ${req.params.prescriptionId}`, 404)
       );
     }
 
@@ -99,7 +99,7 @@ exports.deletePrescription = async (req, res, next) => {
 
     if (!prescription) {
       return next(
-        new ErrorResponse(`Prescription not found with id: ${req.params.prescriptionId}`, 404)
+        new ErrorResponse(`Prescription not found with prescriptionId: ${req.params.prescriptionId}`, 404)
       );
     }
 

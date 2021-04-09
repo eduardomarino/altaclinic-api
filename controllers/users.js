@@ -22,7 +22,7 @@ exports.getUser = async (req, res, next) => {
 
     if (!user) {
       return next(
-        new ErrorResponse(`User not found with id: ${req.params.userId}`, 404)
+        new ErrorResponse(`User not found with userId: ${req.params.userId}`, 404)
       );
     }
 
@@ -45,7 +45,7 @@ exports.updateUser = async (req, res, next) => {
 
     if (!user) {
       return next(
-        new ErrorResponse(`User not found with id: ${req.params.userId}`, 404)
+        new ErrorResponse(`User not found with userId: ${req.params.userId}`, 404)
       );
     }
 
@@ -65,7 +65,7 @@ exports.deleteUser = async (req, res, next) => {
 
     if (!user) {
       return next(
-        new ErrorResponse(`User not found with id: ${req.params.userId}`, 404)
+        new ErrorResponse(`User not found with userId: ${req.params.userId}`, 404)
       );
     }
 

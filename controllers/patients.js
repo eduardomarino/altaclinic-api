@@ -22,7 +22,7 @@ exports.getPatient = async (req, res, next) => {
 
     if (!patient) {
       return next(
-        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+        new ErrorResponse(`Patient not found with patientId: ${req.params.patientId}`, 404)
       );
     }
 
@@ -58,7 +58,7 @@ exports.updatePatient = async (req, res, next) => {
 
     if (!patient) {
       return next(
-        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+        new ErrorResponse(`Patient not found with patientId: ${req.params.patientId}`, 404)
       );
     }
 
@@ -78,7 +78,7 @@ exports.deletePatient = async (req, res, next) => {
 
     if (!patient) {
       return next(
-        new ErrorResponse(`Patient not found with id: ${req.params.patientId}`, 404)
+        new ErrorResponse(`Patient not found with patientId: ${req.params.patientId}`, 404)
       );
     }
 
