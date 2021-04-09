@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+
 const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
@@ -19,7 +20,7 @@ const patients = require('./routes/patients');
 const appointments = require('./routes/appointments');
 const diagnoses = require('./routes/diagnoses');
 const prescriptions = require('./routes/prescriptions');
-const exams = require('./routes/exams');
+const examinations = require('./routes/examinations');
 
 const app = express();
 
@@ -47,7 +48,7 @@ app.use('/api/v1/patients', patients);
 app.use('/api/v1/appointments', appointments);
 app.use('/api/v1/diagnoses', diagnoses);
 app.use('/api/v1/prescriptions', prescriptions);
-app.use('/api/v1/exams', exams);
+app.use('/api/v1/examinations', examinations);
 
 // Error handler
 app.use(errorHandler);
