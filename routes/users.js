@@ -5,7 +5,7 @@ const {
   getUser,
   updateUser,
   deleteUser
-} = require('../controllers/users');
+} = require('../services/users');
 
 const User = require('../models/User');
 

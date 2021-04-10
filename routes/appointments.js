@@ -6,7 +6,7 @@ const {
   createAppointment,
   updateAppointment,
   deleteAppointment
-} = require('../controllers/appointments');
+} = require('../services/appointments');
 
 const Appointment = require('../models/Appointment');
 

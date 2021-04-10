@@ -6,7 +6,7 @@ const {
   createPrescription,
   updatePrescription,
   deletePrescription
-} = require('../controllers/prescriptions');
+} = require('../services/prescriptions');
 
 const Prescription = require('../models/Prescription');
 
