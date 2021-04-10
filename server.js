@@ -5,10 +5,10 @@ const cors = require('cors');
 
 const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/error');
-const connectDB = require('./config/db');
+const connectDB = require('./database/db');
 
 // Load env vars
-dotenv.config({ path: './config/config.env' });
+dotenv.config({ path: 'config.env' });
 
 // Connect to database
 connectDB();
