@@ -3,9 +3,9 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const logger = require('./middleware/logger');
-const errorHandler = require('./middleware/error');
-const connectDB = require('./database/db');
+const logger = require('./src/middleware/logger');
+const errorHandler = require('./src/middleware/error');
+const connectDB = require('./src/database/db');
 
 // Load env vars
 dotenv.config({ path: 'config.env' });
@@ -14,13 +14,13 @@ dotenv.config({ path: 'config.env' });
 connectDB();
 
 // Route files
-const auth = require('./routes/auth');
-const users = require('./routes/users');
-const patients = require('./routes/patients');
-const appointments = require('./routes/appointments');
-const diagnoses = require('./routes/diagnoses');
-const prescriptions = require('./routes/prescriptions');
-const examinations = require('./routes/examinations');
+const auth = require('./src/routes/auth');
+const users = require('./src/routes/users');
+const patients = require('./src/routes/patients');
+const appointments = require('./src/routes/appointments');
+const diagnoses = require('./src/routes/diagnoses');
+const prescriptions = require('./src/routes/prescriptions');
+const examinations = require('./src/routes/examinations');
 
 const app = express();
 
