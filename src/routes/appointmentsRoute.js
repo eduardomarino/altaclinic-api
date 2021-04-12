@@ -11,7 +11,7 @@ const {
 const Appointment = require('../models/appointmentModel');
 
 const resultsHandler = require('../middleware/results');
-const { protect, authorize } = require('../middleware/auth');
+const { protect, authorize } = require('../middleware/authorization');
 
 router.use(protect);
 router.use(authorize('admin', 'physician', 'user'));
