@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../models/userModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 // Protect routes
