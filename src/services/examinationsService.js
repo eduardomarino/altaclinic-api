@@ -1,4 +1,4 @@
-const Examination = require('../models/Examination');
+const Examination = require('../models/examinationModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all examinations

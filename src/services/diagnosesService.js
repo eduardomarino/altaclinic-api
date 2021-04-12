@@ -1,4 +1,4 @@
-const Diagnosis = require('../models/Diagnosis');
+const Diagnosis = require('../models/diagnosisModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all diagnoses

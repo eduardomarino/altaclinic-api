@@ -6,9 +6,9 @@ const {
   createDiagnosis,
   updateDiagnosis,
   deleteDiagnosis
-} = require('../services/diagnoses');
+} = require('../services/diagnosesService');
 
-const Diagnosis = require('../models/Diagnosis');
+const Diagnosis = require('../models/diagnosisModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

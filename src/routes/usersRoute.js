@@ -5,9 +5,9 @@ const {
   getUser,
   updateUser,
   deleteUser
-} = require('../services/users');
+} = require('../services/usersService');
 
-const User = require('../models/User');
+const User = require('../models/userModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

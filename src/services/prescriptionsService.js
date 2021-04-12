@@ -1,4 +1,4 @@
-const Prescription = require('../models/Prescription');
+const Prescription = require('../models/prescriptionModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all prescriptions

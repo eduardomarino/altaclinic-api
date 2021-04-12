@@ -6,9 +6,9 @@ const {
   createPrescription,
   updatePrescription,
   deletePrescription
-} = require('../services/prescriptions');
+} = require('../services/prescriptionsService');
 
-const Prescription = require('../models/Prescription');
+const Prescription = require('../models/prescriptionModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

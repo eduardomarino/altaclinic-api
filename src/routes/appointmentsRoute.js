@@ -6,9 +6,9 @@ const {
   createAppointment,
   updateAppointment,
   deleteAppointment
-} = require('../services/appointments');
+} = require('../services/appointmentsService');
 
-const Appointment = require('../models/Appointment');
+const Appointment = require('../models/appointmentModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

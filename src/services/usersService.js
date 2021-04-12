@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/userModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 // @desc      Get all users

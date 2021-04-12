@@ -6,9 +6,9 @@ const {
   createExamination,
   updateExamination,
   deleteExamination
-} = require('../services/examinations');
+} = require('../services/examinationsService');
 
-const Examination = require('../models/Examination');
+const Examination = require('../models/examinationModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

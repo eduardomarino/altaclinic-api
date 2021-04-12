@@ -6,9 +6,9 @@ const {
   createPatient,
   updatePatient,
   deletePatient
-} = require('../services/patients');
+} = require('../services/patientsService');
 
-const Patient = require('../models/Patient');
+const Patient = require('../models/patientModel');
 
 const resultsHandler = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');

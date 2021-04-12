@@ -14,13 +14,13 @@ dotenv.config({ path: 'config.env' });
 connectDB();
 
 // Route files
-const auth = require('./src/routes/auth');
-const users = require('./src/routes/users');
-const patients = require('./src/routes/patients');
-const appointments = require('./src/routes/appointments');
-const diagnoses = require('./src/routes/diagnoses');
-const prescriptions = require('./src/routes/prescriptions');
-const examinations = require('./src/routes/examinations');
+const auth = require('./src/routes/authRoute');
+const users = require('./src/routes/usersRoute');
+const patients = require('./src/routes/patientsRoute');
+const appointments = require('./src/routes/appointmentsRoute');
+const diagnoses = require('./src/routes/diagnosesRoute');
+const prescriptions = require('./src/routes/prescriptionsRoute');
+const examinations = require('./src/routes/examinationsRoute');
 
 const app = express();
 
