@@ -31,13 +31,8 @@ const PatientSchema = new mongoose.Schema({
   },
   healthInsurance: {
     type: String,
-    required: true,
-    enum: [
-      'None',
-      'Plan 1',
-      'Plan 2',
-      'Plan 3'
-    ],
+    trim: true,
+    maxlength: [25, 'Health Insurance can not be more than 25 characters'],
     default: 'None'
   },
   email: {
@@ -62,7 +57,8 @@ const PatientSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: [true, 'An address is required']
+    required: [true, 'An address is required'],
+    maxlength: [100, 'Address can not be more than 100 characters']
   },
   createdAt: {
     type: Date,

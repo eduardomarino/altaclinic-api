@@ -2,13 +2,8 @@ const mongoose = require('mongoose');
 
 const AppointmentSchema = new mongoose.Schema({
   date: {
-    type: String,
-    required: [true, 'A date is required'],
-    trim: true,
-    match: [
-      /(\d{4})[-.\/](\d{2})[-.\/](\d{2})/,
-      'Use a valid date'
-    ]
+    type: Date,
+    required: [true, 'A date is required']
   },
   time: {
     type: String,
