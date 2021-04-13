@@ -6,7 +6,7 @@ const {
   createPatient,
   updatePatient,
   deletePatient
-} = require('../services/patientsService');
+} = require('../controllers/patientsController');
 
 const Patient = require('../models/patientModel');
 

@@ -6,7 +6,7 @@ const {
   createExamination,
   updateExamination,
   deleteExamination
-} = require('../services/examinationsService');
+} = require('../controllers/examinationsController');
 
 const Examination = require('../models/examinationModel');
 
