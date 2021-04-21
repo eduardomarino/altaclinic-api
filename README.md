@@ -1,5 +1,5 @@
 # Altaclinic - API
-Back-End API for the Altaclinic application to manage patients, medical records, appointments, users and authentication.
+Simple Back-End API to manage patients, medical records, appointments, users and authentication.
 
 Built with: Node.js, Express.js and MongoDB.
 
