@@ -1,7 +1,7 @@
 {
   "name": "altaclinic-api",
   "version": "1.0.0",
-  "description": "Back-End API for the Altaclinic application to manage patients, medical records, appointments, users and authentication.",
+  "description": "Simple Backend API to manage patients, medical records, appointments, users and authentication.",
   "homepage": "",
   "main": "server.js",
   "scripts": {
